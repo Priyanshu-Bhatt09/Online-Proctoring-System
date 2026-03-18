@@ -1,10 +1,10 @@
 package com.example.backend.entity;
 
 import jakarta.persistence.*;
-import org.springframework.data.relational.core.mapping.Table;
+
 
 @Entity
-@Table(name = "users")
+@Table (name = "users")
 public class User {
     @Id //it is a standard way to define a primary key
     @GeneratedValue (strategy = GenerationType.IDENTITY) //this tells how to generate the id this IDENTITY strategy automatically hands over it to the database which translates to an auto-increment coloumn

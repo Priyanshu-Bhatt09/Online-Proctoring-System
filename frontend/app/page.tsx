@@ -9,7 +9,9 @@ export default function home() {
         <button className="bg-red-200 p-1 border rounded-sm m-1">Login</button>
         </Link>
       </div>
+      <Link href="/create-exam">
       <button className="bg-red-200 p-1 border rounded-sm m-1">Conduct an Exam</button>
+      </Link>
     </div>
     </>
   )
