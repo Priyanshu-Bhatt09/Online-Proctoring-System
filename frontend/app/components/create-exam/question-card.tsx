@@ -56,6 +56,18 @@ export default function QuestionCard({ index, remove, dragHandleProps }: Questio
                 </div>
             </div>
 
+            <div className="border flex w-fit ml-5">
+                <select {...register(`questions.${index}.type`)}>
+                    <option value="MCQ">MCQ</option>
+                    <option value="MCA">MCA</option>
+                    <option value="SHORT_TEXT">SHORT_TEXT</option>
+                    <option value="CODING">CODING EDITOR</option>
+                    <option value="INPUT">SINGLE LINE INPUT</option>
+                    <option value="MATCH">MATCH</option>
+                    <option value="COMPREHENSION">COMPREHENSION</option>
+                </select>
+            </div>
+
             {fields.map((field, i) => (
                 <OptionItem
                     key={field.id}
