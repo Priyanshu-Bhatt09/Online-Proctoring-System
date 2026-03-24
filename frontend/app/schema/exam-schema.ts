@@ -10,7 +10,16 @@ export const questionSchema = z.object({
     text: z.string().min(1, "Question required"),
     points: z.number().min(1),
     negativePoint: z.number().min(0),
-    options: z.array(optionSchema).min(2)
+    options: z.array(optionSchema).min(2),
+    type: z.enum([
+        "MCQ",
+        "MCA",
+        "SHORT_TEXT",
+        "CODING",
+        "INPUT",
+        "MATCH",
+        "COMPREHENSION"
+    ])
 });
 
 export const examSchema = z.object({
