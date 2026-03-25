@@ -1,5 +1,6 @@
 import MCA from "./types/mca";
 import MCQ from "./types/mcq";
+import ShortText from "./types/short-text";
 
 export function renderQuestionType(type: string, index: number) {
     switch(type) {
@@ -8,6 +9,9 @@ export function renderQuestionType(type: string, index: number) {
 
         case "MCA":
             return <MCA index={index} />;
+
+        case "SHORT_TEXT":
+            return <ShortText />
         default:
             return null;
     }
