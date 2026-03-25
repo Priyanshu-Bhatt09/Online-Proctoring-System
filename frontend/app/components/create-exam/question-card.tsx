@@ -1,7 +1,6 @@
 "use client";
 
 import { useFieldArray, useFormContext } from "react-hook-form";
-import OptionItem from "./option-item";
 import { renderQuestionType } from "./render_type";
 
 type QuestionCardProps = {

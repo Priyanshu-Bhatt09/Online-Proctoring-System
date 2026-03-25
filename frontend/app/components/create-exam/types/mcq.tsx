@@ -1,5 +1,4 @@
 import { useFieldArray, useFormContext } from "react-hook-form";
-import OptionItem from "../option-item";
 
 export default function MCQ({ index }: any) {
     //register - connects an input to the form state(the whole obje of data is a form state)
@@ -9,7 +8,7 @@ export default function MCQ({ index }: any) {
 
 
     //fields - it is not our actual form data, but it is a helper array used to render the UI, react hook form generates unique id for each item and stores them in fields that's why we use field.id, this keeps the input stabel even when we remove, add or reorder item
-    const { fields, append } = useFieldArray({ //useFieldArray - used when your form contains an array of items like questions - and to manage this questions array(add, remove, reorder) we use useFieldArray 
+    const { fields, append, remove } = useFieldArray({ //useFieldArray - used when your form contains an array of items like questions - and to manage this questions array(add, remove, reorder) we use useFieldArray 
         control,
         name: `questions.${index}.options` //this means Manage formData.questions[index].options so the name is basically a path inside the form object
     });
@@ -21,12 +20,23 @@ export default function MCQ({ index }: any) {
     return (
         <div>
             {fields.map((field, i) => ( //field is the current questions/options object and i is the position in the array
-                <div key={field.id}>
-                    <OptionItem
-                        key={field.id}
-                        qIndex={index}
-                        oIndex={i}
+                <div key={field.id} className="flex gap-2 mt-2">
+                    <input type="radio"
+                    {...register(`questions.${index}.correctOption`)}
+                    value={i}
                     />
+
+                    <input 
+                    {...register(`questions.${index}.options.${i}.text`)}
+                    placeholder={`Option ${i+1}`}
+                    />
+
+                    <button
+                    type="button"
+                    onClick={() => remove(i)}
+                    >
+                        X
+                    </button>
                 </div>
             ))}
             <button
