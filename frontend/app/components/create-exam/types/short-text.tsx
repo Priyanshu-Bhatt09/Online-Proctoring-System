@@ -3,9 +3,9 @@ import { useFormContext } from "react-hook-form"
 export default function ShortText({index}: any) {
     const {register, watch} = useFormContext();
 
-    const text = watch(`questions.${index}.paragraph`);
+    const text = watch(`questions.${index}.paragraph`); //here watch is like live reading the form values
     const wordLimit = 50;
-    const wordCount = text ? text.trim().split(/\s+/).length : 0;
+    const wordCount = text ? text.trim().split(/\s+/).length : 0; //text ? means if there is text then calculate the len else 0
     return(
         <div>
             <textarea
