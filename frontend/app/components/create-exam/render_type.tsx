@@ -1,3 +1,4 @@
+import Coding from "./types/coding";
 import Input from "./types/input";
 import MCA from "./types/mca";
 import MCQ from "./types/mcq";
@@ -16,6 +17,9 @@ export function renderQuestionType(type: string, index: number) {
 
         case "INPUT":
             return <Input index={index}/>
+
+        case "CODING":
+            return <Coding />
         default:
             return null;
     }
