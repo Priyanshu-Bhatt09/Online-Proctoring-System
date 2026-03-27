@@ -65,8 +65,8 @@ export default function QuestionCard({ index, remove, dragHandleProps }: Questio
                     <option value="SHORT_TEXT">SHORT_TEXT</option>
                     <option value="CODING">CODING EDITOR</option>
                     <option value="INPUT">SINGLE LINE INPUT</option>
-                    <option value="MATCH">MATCH</option>
-                    <option value="COMPREHENSION">COMPREHENSION</option>
+                    {/* <option value="MATCH">MATCH</option>
+                    <option value="COMPREHENSION">COMPREHENSION</option> */}
                 </select>
             </div>
 
