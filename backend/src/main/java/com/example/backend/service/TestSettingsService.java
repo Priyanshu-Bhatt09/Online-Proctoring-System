@@ -72,4 +72,14 @@ public class TestSettingsService {
     public TestSettings getSettings(Long examId) {
         return settingsRepository.findByExamId(examId).orElseThrow();
     }
+
+    /**
+     * Publish results: sets showResult to IMMEDIATELY without regenerating the test link.
+     */
+    public void publishResults(Long examId) {
+        TestSettings settings = settingsRepository.findByExamId(examId)
+                .orElseThrow(() -> new RuntimeException("Settings not found for exam: " + examId));
+        settings.setShowResult("IMMEDIATELY");
+        settingsRepository.save(settings);
+    }
 }

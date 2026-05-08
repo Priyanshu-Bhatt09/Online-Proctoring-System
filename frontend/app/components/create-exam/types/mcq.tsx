@@ -1,47 +1,50 @@
 import { useFieldArray, useFormContext } from "react-hook-form";
 
 export default function MCQ({ index }: any) {
-    //register - connects an input to the form state(the whole obje of data is a form state)
-    //eg of register - register("questions.0.options.1.text") this means - this input controls the text of option 2 of question 1.
-    //control - react hook form needs something that can manage its whole object and that manager is control, basically it manages every complex thing that happens in form internally like - array, nested fields, controllers
-    const { register, control } = useFormContext(); //this is used to get the form functions from parent form
-
-
-    //fields - it is not our actual form data, but it is a helper array used to render the UI, react hook form generates unique id for each item and stores them in fields that's why we use field.id, this keeps the input stabel even when we remove, add or reorder item
-    const { fields, append, remove } = useFieldArray({ //useFieldArray - used when your form contains an array of items like questions - and to manage this questions array(add, remove, reorder) we use useFieldArray 
+    const { register, control } = useFormContext();
+    const { fields, append, remove } = useFieldArray({
         control,
-        name: `questions.${index}.options` //this means Manage formData.questions[index].options so the name is basically a path inside the form object
+        name: `questions.${index}.options`
     });
 
     const addOption = () => {
-        append({text: "", isCorrect: false});
+        append({ text: "", isCorrect: false });
     };
 
     return (
         <div>
-            {fields.map((field, i) => ( //field is the current questions/options object and i is the position in the array
-                <div key={field.id} className="flex gap-2 mt-2">
-                    <input type="radio"
-                    {...register(`questions.${index}.correctOption`)}
-                    value={i}
+            <div className="bg-blue-50 p-3 rounded mb-3 border-l-4 border-blue-500">
+                <p className="text-sm font-semibold text-blue-900 font-sans">✓ Select the correct answer:</p>
+            </div>
+            {fields.map((field, i) => (
+                <div key={field.id} className="flex gap-2 mt-2 items-center">
+                    <input 
+                        type="radio"
+                        {...register(`questions.${index}.correctOption`, { valueAsNumber: true })}
+                        value={i}
+                        className="w-4 h-4 cursor-pointer"
                     />
 
-                    <input 
-                    {...register(`questions.${index}.options.${i}.text`)}
-                    placeholder={`Option ${i+1}`}
+                    <input
+                        {...register(`questions.${index}.options.${i}.text`)}
+                        placeholder={`Option ${i + 1}`}
+                        className="flex-1 border px-2 py-1"
                     />
 
                     <button
-                    type="button"
-                    onClick={() => remove(i)}
+                        type="button"
+                        onClick={() => remove(i)}
+                        className="bg-red-100 hover:bg-red-200 px-2 py-1 rounded text-red-700"
                     >
                         X
                     </button>
                 </div>
             ))}
             <button
-                className="border-2 m-1 p-1 rounded-md"
-                type="button" onClick={addOption}>
+                className="border-2 m-1 p-1 rounded-md hover:bg-gray-100"
+                type="button"
+                onClick={addOption}
+            >
                 Add Option
             </button>
         </div>

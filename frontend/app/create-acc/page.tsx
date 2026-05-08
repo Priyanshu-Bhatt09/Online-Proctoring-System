@@ -64,12 +64,12 @@ function RegisterContent() {
                         </svg>
                     </div>
                     <h2 className="text-2xl font-serif font-semibold text-slate-900">Online Proctoring System</h2>
-                    <p className="mt-1 text-sm text-slate-600">Register for a new account.</p>
+                    <p className="mt-1 text-sm text-slate-600 font-sans">Register for a new account.</p>
                 </div>
                 <form className="mt-6 space-y-6" onSubmit={handleSignup}>
                     <div className="space-y-4">
                         <div>
-                            <label className="block text-xs font-medium text-slate-700 mb-1">Full Name</label>
+                            <label className="block text-xs font-medium text-slate-700 mb-1 font-sans">Full Name</label>
                             <input
                                 type="text"
                                 required
@@ -80,7 +80,7 @@ function RegisterContent() {
                             />
                         </div>
                         <div>
-                            <label className="block text-xs font-medium text-slate-700 mb-1">Email</label>
+                            <label className="block text-xs font-medium text-slate-700 mb-1 font-sans">Email</label>
                             <input
                                 type="email"
                                 required
@@ -91,7 +91,7 @@ function RegisterContent() {
                             />
                         </div>
                         <div>
-                            <label className="block text-xs font-medium text-slate-700 mb-1">Password</label>
+                            <label className="block text-xs font-medium text-slate-700 mb-1 font-sans">Password</label>
                             <input
                                 type="password"
                                 required
@@ -102,7 +102,7 @@ function RegisterContent() {
                             />
                         </div>
                         <div>
-                            <label className="block text-xs font-medium text-slate-700 mb-1">Confirm Password</label>
+                            <label className="block text-xs font-medium text-slate-700 mb-1 font-sans">Confirm Password</label>
                             <input
                                 type="password"
                                 required
@@ -114,7 +114,7 @@ function RegisterContent() {
                         </div>
                     </div>
                     {error && (
-                        <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm font-medium">
+                        <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm font-medium font-sans">
                             {error}
                         </div>
                     )}
@@ -126,7 +126,7 @@ function RegisterContent() {
                         {loading ? "Creating Account..." : (<span className="flex items-center gap-2">Create Account <span className="ml-1">⇨</span></span>)}
                     </button>
                     <div className="text-center mt-2">
-                        <span className="text-slate-500 text-sm">Already registered? </span>
+                        <span className="text-slate-500 text-sm font-sans">Already registered? </span>
                         <Link href={redirectUrl ? `/login?redirect=${redirectUrl}` : `/login`} className="text-green-900 font-semibold hover:underline">Log in here</Link>
                     </div>
                 </form>

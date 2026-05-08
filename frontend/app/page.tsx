@@ -30,11 +30,11 @@ export default function Home() {
             </div>
             <div>
               <p className="text-lg font-semibold tracking-tight">Online Proctoring System</p>
-              <p className="text-xs text-[#d6cec0]">Online exam workspace</p>
+              <p className="text-xs text-[#d6cec0] font-sans">Online exam workspace</p>
             </div>
           </div>
 
-          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 text-sm text-[#d8d1c4] md:flex">
+          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 text-sm text-[#d8d1c4] md:flex font-sans">
             <a href="#features" className="transition hover:text-white">
               Features
             </a>
@@ -48,7 +48,7 @@ export default function Home() {
 
           <Link
             href="/login"
-            className="rounded-xl border border-[#c9bea9] bg-[#f4ebdc] px-4 py-2 text-sm font-semibold text-[#25211c] transition hover:-translate-y-0.5 hover:bg-white"
+            className="rounded-xl border border-[#c9bea9] bg-[#f4ebdc] px-4 py-2 text-sm font-semibold text-[#25211c] transition hover:-translate-y-0.5 hover:bg-white font-sans"
           >
             Login
           </Link>
@@ -64,7 +64,7 @@ export default function Home() {
           }}
         >
           <div className="mx-auto max-w-5xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#d9cdb9] bg-white/70 px-4 py-2 text-sm font-medium text-[#51473f] shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#d9cdb9] bg-white/70 px-4 py-2 text-sm font-medium text-[#51473f] shadow-sm font-sans">
               <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#2a7a6e]" />
               Designed for creating, sharing, and reviewing online exams
             </div>
@@ -82,13 +82,13 @@ export default function Home() {
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href="/login"
-                className="inline-flex min-w-40 items-center justify-center rounded-2xl border border-[#cabca7] bg-[#2b2723] px-6 py-3 text-sm font-semibold text-[#f8f3ea] transition hover:-translate-y-0.5 hover:bg-black"
+                className="inline-flex min-w-40 items-center justify-center rounded-2xl border border-[#cabca7] bg-[#2b2723] px-6 py-3 text-sm font-semibold text-[#f8f3ea] transition hover:-translate-y-0.5 hover:bg-black font-sans"
               >
                 Let&apos;s get started
               </Link>
               <Link
                 href="/create-acc"
-                className="inline-flex min-w-40 items-center justify-center rounded-2xl border border-[#d6c7b0] bg-[#fbf6ee] px-6 py-3 text-sm font-semibold text-[#3d372f] transition hover:-translate-y-0.5 hover:bg-white"
+                className="inline-flex min-w-40 items-center justify-center rounded-2xl border border-[#d6c7b0] bg-[#fbf6ee] px-6 py-3 text-sm font-semibold text-[#3d372f] transition hover:-translate-y-0.5 hover:bg-white font-sans"
               >
                 Create account
               </Link>
@@ -104,12 +104,12 @@ export default function Home() {
                 <p className="text-3xl font-semibold tracking-tight text-[#2f2924]">
                   24
                 </p>
-                <p className="pb-1 text-sm text-[#6f655c]">active attempts</p>
+                <p className="pb-1 text-sm text-[#6f655c] font-sans">active attempts</p>
               </div>
               <div className="mt-3 h-2.5 w-40 overflow-hidden rounded-full bg-[#ece3d5]">
                 <div className="h-full w-[72%] rounded-full bg-[#2a7a6e]" />
               </div>
-              <p className="mt-2 text-xs text-[#6f655c]">
+              <p className="mt-2 text-xs text-[#6f655c] font-sans">
                 Smooth candidate flow across shared exam links
               </p>
             </div>
@@ -128,7 +128,7 @@ export default function Home() {
 
                 <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-3 sm:bottom-6 sm:left-6 sm:right-auto">
                   <div className="w-fit overflow-hidden rounded-full border border-white/30 bg-[#1f1d1abf] px-5 py-3 text-left backdrop-blur-sm">
-                    <p className="text-xs uppercase tracking-[0.24em] text-[#d7d0c3]">
+                    <p className="text-xs uppercase tracking-[0.24em] text-[#d7d0c3] font-sans">
                       Built for teams
                     </p>
                     <p className="mt-1 text-lg font-semibold text-white">
@@ -152,7 +152,7 @@ export default function Home() {
                 <p className="text-lg font-semibold tracking-tight text-[#2f2924]">
                   {item.title}
                 </p>
-                <p className="mt-3 text-sm leading-6 text-[#6f655c]">
+                <p className="mt-3 text-sm leading-6 text-[#6f655c] font-sans">
                   {item.description}
                 </p>
               </article>
@@ -164,13 +164,13 @@ export default function Home() {
             className="mx-auto mt-10 grid max-w-6xl gap-5 lg:grid-cols-[1.1fr_0.9fr]"
           >
             <div className="rounded-[30px] border border-[#d8cab5] bg-[#f8f1e7] p-7">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#7d7369]">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#7d7369] font-sans">
                 Workflow
               </p>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#2f2924]">
                 Easy to work with
               </h2>
-              <div className="mt-6 grid gap-4 text-sm text-[#5e554d] sm:grid-cols-3">
+              <div className="mt-6 grid gap-4 text-sm text-[#5e554d] sm:grid-cols-3 font-sans">
                 <div className="rounded-2xl bg-white/60 p-4">
                   <p className="font-semibold text-[#2f2924]">1. Create</p>
                   <p className="mt-2 leading-6">
@@ -198,13 +198,13 @@ export default function Home() {
               id="results"
               className="rounded-[30px] border border-[#d8cab5] bg-[#2b2723] p-7 text-[#f3ede3]"
             >
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#cbbfac]">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#cbbfac] font-sans">
                 Results
               </p>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight">
                 Keep the final promise simple: launch exams and measure outcomes.
               </h2>
-              <div className="mt-6 space-y-3 text-sm text-[#d6cec1]">
+              <div className="mt-6 space-y-3 text-sm text-[#d6cec1] font-sans">
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                   Conducted exams stay visible in one place for quick follow-up.
                 </div>

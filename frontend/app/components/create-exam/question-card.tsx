@@ -23,72 +23,61 @@ export default function QuestionCard({ index, remove, dragHandleProps }: Questio
     // };
 
     return (
-        <div className="border rounded-lg p-4 m-2">
-            <div className="flex flex-row gap-8">
-                <div>
-                    <span
-                        {...dragHandleProps}
-                        className="cursor-grab m-1">⋮⋮</span>
+        <div className="flex flex-col gap-4 font-sans">
+            <div className="flex flex-wrap gap-6 items-center mb-2">
+                <span {...dragHandleProps} className="cursor-grab text-2xl text-[#3b7c5c] mr-2">⋮⋮</span>
+                <div className="flex-1 min-w-[220px]">
+                    <label className="block font-semibold mb-1">Question Text</label>
                     <input
-                        className="border p-1 w-[40vw] h-[8vh] "
+                        className="border border-[#b3b3a8] rounded-lg px-3 py-2 w-full bg-white focus:outline-none focus:ring-2 focus:ring-[#3b7c5c]"
                         {...register(`questions.${index}.text`)}
-                        placeholder="Question Text"
+                        placeholder="New question"
                     />
                 </div>
-
-                <div className=" flex flex-col w-[10vw]">
-                    <label className="border-2 text-center">Points</label>
+                <div className="w-32 min-w-[100px]">
+                    <label className="block font-semibold mb-1">Points</label>
                     <input
-                        className="my-1 border-2 text-center"
+                        className="border border-[#b3b3a8] rounded-lg px-2 py-1 w-full text-center bg-white"
                         type="number"
-                        {...register(`questions.${index}.points`, { valueAsNumber: true }
-                        )}
+                        {...register(`questions.${index}.points`, { valueAsNumber: true })}
                     />
                 </div>
-                <div className=" flex flex-col w-[18vw]">
-                    <label className="border-2 text-center">Negative Points</label>
+                <div className="w-40 min-w-[120px]">
+                    <label className="block font-semibold mb-1">Negative Points</label>
                     <input
-                        className="border-2 text-center my-1"
+                        className="border border-[#b3b3a8] rounded-lg px-2 py-1 w-full text-center bg-white"
                         type="number"
-
-                        {...register(`questions.${index}.negativePoint`,
-                            { valueAsNumber: true }
-                        )}
+                        {...register(`questions.${index}.negativePoint`, { valueAsNumber: true })}
                     />
+                </div>
+                <div className="w-48 min-w-[140px]">
+                    <label className="block font-semibold mb-1">Question Type</label>
+                    <select
+                        className="border border-[#b3b3a8] rounded-lg px-2 py-2 w-full bg-white"
+                        {...register(`questions.${index}.type`)}
+                    >
+                        <option value="MCQ">MCQ</option>
+                        <option value="MCA">MCA</option>
+                        <option value="SHORT_TEXT">Short text</option>
+                        <option value="CODING">Coding</option>
+                        <option value="INPUT">Input</option>
+                    </select>
                 </div>
             </div>
 
-            <div className="border flex w-fit ml-5">
-                <select {...register(`questions.${index}.type`)}>
-                    <option value="MCQ">MCQ</option>
-                    <option value="MCA">MCA</option>
-                    <option value="SHORT_TEXT">SHORT_TEXT</option>
-                    <option value="CODING">CODING EDITOR</option>
-                    <option value="INPUT">SINGLE LINE INPUT</option>
-                    {/* <option value="MATCH">MATCH</option>
-                    <option value="COMPREHENSION">COMPREHENSION</option> */}
-                </select>
+            <div className="mt-2">
+                {renderQuestionType(type, index)}
             </div>
 
-            {/* {fields.map((field, i) => (
-                <OptionItem
-                    key={field.id}
-                    qIndex={index}
-                    oIndex={i}
-                />
-            ))}
-            <button
-                className="border-2 m-1 p-1 rounded-md"
-                type="button" onClick={addOption}>
-                Add Option
-            </button> */}
-
-            {/* render question type component */}
-            {renderQuestionType(type, index)}
-
-            <button type="button"
-                className="border-2 mx-5 my-2 p-1 rounded-md"
-                onClick={() => remove(index)}>Delete Question</button>
+            <div className="flex gap-4 mt-4">
+                <button
+                    type="button"
+                    className="flex-1 py-2 rounded-lg bg-[#3b7c5c] text-white font-semibold shadow hover:bg-[#2e6248] transition-colors border border-[#3b7c5c]"
+                    onClick={() => remove(index)}
+                >
+                    Delete Question
+                </button>
+            </div>
         </div>
     )
 }

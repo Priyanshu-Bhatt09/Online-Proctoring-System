@@ -16,24 +16,29 @@ public class TestSettingsController {
 
     //save settings
     @PostMapping
-    public TestSettings saveSettings(@RequestBody TestSettingsDto dto) {
-        return testSettingsService.saveSettings(dto);
+    public TestSettingsDto saveSettings(@RequestBody TestSettingsDto dto) {
+        TestSettings settings = testSettingsService.saveSettings(dto);
+        return toDto(settings);
     }
 
 
-    //get setting by exam
+    //get setting by exam — return DTO to avoid Jackson circular reference (TestSettings↔Exam)
     @GetMapping("/{examId}")
-    public TestSettings getSettings(@PathVariable Long examId) {
-        return testSettingsService.getSettings(examId);
+    public TestSettingsDto getSettings(@PathVariable Long examId) {
+        TestSettings settings = testSettingsService.getSettings(examId);
+        return toDto(settings);
     }
 
-    //publish result
+    //publish result — directly update showResult without regenerating test link
     @PostMapping("/{examId}/publish-results")
     public java.util.Map<String, String> publishResults(@PathVariable Long examId) {
-        TestSettings settings = testSettingsService.getSettings(examId);
-        settings.setShowResult("IMMEDIATELY");
-        com.example.backend.dto.TestSettingsDto dto = new com.example.backend.dto.TestSettingsDto();
-        dto.setExamId(examId);
+        testSettingsService.publishResults(examId);
+        return java.util.Map.of("message", "Results published successfully");
+    }
+
+    private TestSettingsDto toDto(TestSettings settings) {
+        TestSettingsDto dto = new TestSettingsDto();
+        dto.setExamId(settings.getExam() != null ? settings.getExam().getId() : null);
         dto.setDuration(settings.getDuration());
         dto.setMaxAttempts(settings.getMaxAttempts());
         dto.setEnableTimer(settings.isEnableTimer());
@@ -44,10 +49,9 @@ public class TestSettingsController {
         dto.setFullScreen(settings.isFullScreen());
         dto.setMultiMonitor(settings.isMultiMonitor());
         dto.setPhotosRandom(settings.isPhotosRandom());
-        dto.setShowResult("IMMEDIATELY");
+        dto.setShowResult(settings.getShowResult());
         if (settings.getStartTime() != null) dto.setStartTime(settings.getStartTime().toString());
         if (settings.getEndTime() != null) dto.setEndTime(settings.getEndTime().toString());
-        testSettingsService.saveSettings(dto);
-        return java.util.Map.of("message", "Results published successfully");
+        return dto;
     }
 }

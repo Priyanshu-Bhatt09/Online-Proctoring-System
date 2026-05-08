@@ -55,12 +55,12 @@ function LoginContent() {
                         </svg>
                     </div>
                     <h2 className="text-2xl font-serif font-semibold text-slate-900">Online Proctoring System</h2>
-                    <p className="mt-1 text-sm text-slate-600">Secure Authentication</p>
+                    <p className="mt-1 text-sm text-slate-600 font-sans">Secure Authentication</p>
                 </div>
                 <form className="mt-6 space-y-6" onSubmit={handleLogin}>
                     <div className="space-y-4">
                         <div>
-                            <label className="block text-xs font-medium text-slate-700 mb-1">Email</label>
+                            <label className="block text-xs font-medium text-slate-700 mb-1 font-sans">Email</label>
                             <input
                                 type="email"
                                 required
@@ -72,7 +72,7 @@ function LoginContent() {
                         </div>
                         <div>
                             <div className="flex justify-between items-center mb-1">
-                                <label className="block text-xs font-medium text-slate-700">Password</label>
+                                <label className="block text-xs font-medium text-slate-700 font-sans">Password</label>
                                 
                             </div>
                             <input
@@ -93,7 +93,7 @@ function LoginContent() {
                         {loading ? "Signing in..." : (<span className="flex items-center gap-2">Sign In <span className="ml-1">⇨</span></span>)}
                     </button>
                     <div className="text-center mt-2">
-                        <span className="text-slate-500 text-sm">Don't have an account? </span>
+                        <span className="text-slate-500 text-sm font-sans">Don't have an account? </span>
                         <Link href="/create-acc" className="text-green-900 font-semibold hover:underline">Register here.</Link>
                     </div>
                 </form>

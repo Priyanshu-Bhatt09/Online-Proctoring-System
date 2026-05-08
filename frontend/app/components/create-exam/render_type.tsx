@@ -19,7 +19,7 @@ export function renderQuestionType(type: string, index: number) {
             return <Input index={index}/>
 
         case "CODING":
-            return <Coding />
+            return <Coding index={index} />
 
         
         default:
