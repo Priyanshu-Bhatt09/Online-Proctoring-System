@@ -1,4 +1,4 @@
-# Multiple Login - Exam Management System
+# Online Proctoring System
 
 A full-stack web application for creating, managing, and taking exams with secure user authentication. Built with **Spring Boot** and **Next.js**, this system allows educators to create custom exams with multiple question types and track student performance.
 
