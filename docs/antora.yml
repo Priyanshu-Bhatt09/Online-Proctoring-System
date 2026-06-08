@@ -1,0 +1,6 @@
+name: myproject
+title: My Project Docs
+version: '1.0'
+nav:
+  - modules/ROOT/nav.adoc
+  - modules/api/nav.adoc

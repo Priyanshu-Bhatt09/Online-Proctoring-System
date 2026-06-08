@@ -1,11 +1,15 @@
 site:
-  title: My Docs
+  title: My Project Docs
+  start_page: myproject::index.adoc
+  url: https://docs.example.com/
 
 content:
   sources:
-    - url: .
+    - url: https://bitbucket.org/<workspace>/<repo>.git
+      branches: [main]
       start_path: docs
 
 ui:
   bundle:
-    url: https://gitlab.com/antora/default-ui/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle  
+    url: https://docs.example.com/ui-bundle.zip
+    snapshot: true
