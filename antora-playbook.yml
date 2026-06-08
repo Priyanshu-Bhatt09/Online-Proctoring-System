@@ -1,0 +1,11 @@
+site:
+  title: My Docs
+
+content:
+  sources:
+    - url: .
+      start_path: docs
+
+ui:
+  bundle:
+    url: https://gitlab.com/antora/default-ui/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle  
